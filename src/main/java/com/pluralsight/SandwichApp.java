@@ -44,11 +44,11 @@ public class SandwichApp {
 
         // if statement to determine size of discount, if any
         if (age <= 17) {
-            System.out.println("Apple a 10% discount.");
+            System.out.println("Apply a 10% discount.");
             userPrice = userPrice - (userPrice * .10); // 10% for 17 and under
         }
         else if (age >= 65) {
-            System.out.println("Apple a 20% discount.");
+            System.out.println("Apply a 20% discount.");
             userPrice = userPrice - (userPrice * .20); // 20% off for 65 and older
         }
         else {
