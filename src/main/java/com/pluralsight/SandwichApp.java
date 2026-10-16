@@ -10,20 +10,32 @@ public class SandwichApp {
         Scanner myscanner = new Scanner(System.in);
         int inputSize = myscanner.nextInt();
 
+        // ask if user would like a loaded option for an additional cost. store answer
+        System.out.println("Would you like the 'loaded' option?");
+        String loadedOption = myscanner.next();
+
         // define variables for diff prices
         double regPrice = 5.45, largePrice = 8.95;
         double userPrice = 0;
 
         // if statement to determine cost for user's sandwich
+        // nested if statement to determine cost after loaded option
         if (inputSize == 1) {
             userPrice = regPrice;
+            if (loadedOption.equalsIgnoreCase("yes")) {
+                userPrice += 1.00;
+            }
         }
         else if (inputSize == 2) {
             userPrice = largePrice;
+            if (loadedOption.equalsIgnoreCase("yes")) {
+                userPrice += 1.75;
+            }
         }
         else {
             System.out.println("Not a valid input.");
         }
+
 
         // prompt user for age and store answer
         System.out.println("Please enter your age. ");
@@ -33,7 +45,7 @@ public class SandwichApp {
         if (age <= 17) {
             userPrice = userPrice - (userPrice * .10); // 10% for 17 and under
         }
-        if (age >= 65) {
+        else if (age >= 65) {
             userPrice = userPrice - (userPrice * .20); // 20% off for 65 and older
         }
         else {
